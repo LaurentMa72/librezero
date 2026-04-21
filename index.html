@@ -7,43 +7,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-    .hero-bg { 
-      background: linear-gradient(rgba(16, 185, 129, 0.92), rgba(16, 185, 129, 0.85)), 
-                  url('https://picsum.photos/id/1015/2000/1200') center/cover; 
-    }
+   
  
-  /* On crée une zone pour le logo en haut à gauche */
-  .logo-header {
-    position: absolute; 
-    top: 30px;         /* Ajuste pour descendre ou monter le logo */
-    left: 30px;        /* Ajuste pour l'écarter du bord gauche */
-    background: transparent !important; /* Force le fond transparent */
-    line-height: 0;
-  }
 
-  .logo-header img {
-    width: 220px;      /* Change cette valeur pour l'agrandir (ex: 280px) */
-    height: auto; 
-    border: none !important;
-    background: transparent !important;
-    box-shadow: none !important; /* Enlève toute ombre portée qui ferait un cadre */
-  }
-
-  /* Sur mobile, on réduit un peu la taille pour ne pas manger tout l'écran */
-  @media (max-width: 600px) {
-    .logo-header {
-      top: 15px;
-      left: 15px;
-    }
-    .logo-header img {
-      width: 150px;
-    }
-  }
-</style>
-
-<div class="logo-header">
-  <img src="logo.png" alt="LibreZéro">
-</div>
 
 
 
@@ -51,7 +17,53 @@
   
 </head>
 <body class="font-sans text-gray-800">
+<style>
+  /* Le style du bandeau (header) */
+  .site-header {
+    background-color: white; /* Couleur de fond du bandeau (tu peux changer ici) */
+    width: 100%;
+    padding: 15px 30px; /* Espace interne (haut/bas gauche/droite) */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Petite ombre portée discrète */
+    position: fixed; /* Reste collé en haut quand on scrolle */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Passe au-dessus de tout */
+    display: flex;
+    align-items: center; /* Centre le logo verticalement dans le bandeau */
+  }
 
+  /* Le style du logo */
+  .logo-bandeau {
+    width: 220px;       /* Taille du logo (ajuste ici) */
+    height: auto;       /* Garde les proportions */
+    display: block;
+    background: transparent !important; /* Force la transparence si le logo est propre */
+  }
+
+  /* Pour éviter que le contenu ne passe sous le bandeau fixe */
+  body {
+    padding-top: 80px; /* Ajuste selon la hauteur de ton bandeau */
+  }
+
+  /* Ajustement pour mobile */
+  @media (max-width: 600px) {
+    .site-header {
+      padding: 10px 15px;
+    }
+    .logo-bandeau {
+      width: 150px;
+    }
+    body {
+      padding-top: 60px;
+    }
+  }
+</style>
+
+<header class="site-header">
+  <img src="logo.png" alt="LibreZéro" class="logo-bandeau">
+</header>
+
+  
   <!-- HERO -->
   <section class="hero-bg text-white py-24">
     <div class="max-w-5xl mx-auto px-6 text-center">
