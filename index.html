@@ -7,54 +7,69 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-    /* On définit l'image de fond SANS le filtre vert */
     .hero-bg { 
-      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                  url('https://picsum.photos/id/1015/2000/1200') center/cover; 
-      min-height: 80vh;
+      background: url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+      min-height: 85vh;
       display: flex;
       align-items: center;
+      position: relative;
     }
-
-    /* Ajustement pour ne pas que le contenu passe sous le bandeau fixe */
-    body {
-      padding-top: 80px;
+    /* Overlay sombre léger pour garder le texte lisible */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(8px);
     }
   </style>
 </head>
 <body class="font-sans text-gray-800">
 
+  <!-- HEADER FIXE -->
   <header class="fixed top-0 left-0 w-full h-20 bg-white shadow-md z-50 flex items-center px-6 md:px-12">
-    <img src="logo.png" alt="Logo LibreZéro" class="h-16 w-auto">
+    <img src="logo.png" alt="LibreZéro" class="h-14 w-auto">
   </header>
 
+  <!-- HERO -->
   <section class="hero-bg text-white">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      
-      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+    <div class="hero-content max-w-5xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 pt-8">
         Salut, moi c’est Marco !
       </h1>
-      <p class="text-2xl md:text-3xl font-light mb-8 max-w-3xl mx-auto">
+      <p class="text-2xl md:text-3xl font-light mb-10 max-w-3xl mx-auto">
         Je t’aide à investir simplement, sans frais d’entrée<br>et sans te prendre la tête.
       </p>
       
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="https://calendly.com/ton-calendly" target="_blank" 
-           class="bg-emerald-600 text-white hover:bg-emerald-700 px-10 py-5 rounded-2xl text-xl font-semibold transition shadow-lg">
-          Lancer mon diagnostic gratuit
+        <a href="#quiz" 
+           class="bg-white text-emerald-700 hover:bg-emerald-50 px-10 py-5 rounded-2xl text-xl font-semibold transition shadow-lg">
+          Lancer mon diagnostic gratuit (45 secondes)
         </a>
         <a href="https://calendly.com/ton-calendly" target="_blank"
-           class="border-2 border-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-emerald-700 px-8 py-5 rounded-2xl text-xl font-medium transition">
+           class="border-2 border-white hover:bg-white hover:text-emerald-700 px-8 py-5 rounded-2xl text-xl font-medium transition">
           Prendre RDV gratuit
         </a>
       </div>
       
-      <p class="mt-10 text-sm opacity-90">
+      <p class="mt-12 text-sm opacity-90">
         Assurance Vie & PER à <span class="font-semibold">0 € de frais d’entrée</span> • SCPI • Assurance Emprunteur
       </p>
     </div>
   </section>
 
+  <!-- AVANTAGES -->
   <section class="py-16 bg-white">
     <div class="max-w-5xl mx-auto px-6">
       <div class="grid md:grid-cols-3 gap-8">
@@ -77,6 +92,7 @@
     </div>
   </section>
 
+  <!-- TÉMOIGNAGES -->
   <section class="py-20 bg-gray-50">
     <div class="max-w-5xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">Ce qu’ils en disent</h2>
@@ -97,10 +113,12 @@
     </div>
   </section>
 
+  <!-- CTA FINAL -->
   <section id="contact" class="bg-emerald-700 text-white py-20">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <h2 class="text-4xl font-bold mb-6">Envie de faire ton premier pas ?</h2>
       <p class="text-xl mb-10">Je te propose un RDV gratuit de 30 minutes pour discuter tranquillement de ta situation.</p>
+      
       <a href="https://calendly.com/ton-calendly" target="_blank"
          class="inline-block bg-white text-emerald-700 px-12 py-6 rounded-2xl text-xl font-semibold hover:bg-emerald-50 transition">
         Réserver mon RDV gratuit
@@ -108,11 +126,13 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="bg-gray-900 text-gray-400 py-12">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <p class="mb-2">LibreZéro — Accompagnement simple et transparent</p>
       <p class="text-sm">Conseiller en Investissement Financier • Immatriculé ORIAS</p>
       <p class="text-xs mt-8">© 2026 LibreZéro — Tous droits réservés</p>
+      <p class="text-xs mt-4">Les investissements comportent des risques. Les performances passées ne préjugent pas des performances futures.</p>
     </div>
   </footer>
 
