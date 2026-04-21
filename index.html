@@ -11,7 +11,44 @@
       background: linear-gradient(rgba(16, 185, 129, 0.92), rgba(16, 185, 129, 0.85)), 
                   url('https://picsum.photos/id/1015/2000/1200') center/cover; 
     }
-  </style>
+ 
+  /* On crée une zone pour le logo en haut à gauche */
+  .logo-header {
+    position: absolute; 
+    top: 30px;         /* Ajuste pour descendre ou monter le logo */
+    left: 30px;        /* Ajuste pour l'écarter du bord gauche */
+    background: transparent !important; /* Force le fond transparent */
+    line-height: 0;
+  }
+
+  .logo-header img {
+    width: 220px;      /* Change cette valeur pour l'agrandir (ex: 280px) */
+    height: auto; 
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important; /* Enlève toute ombre portée qui ferait un cadre */
+  }
+
+  /* Sur mobile, on réduit un peu la taille pour ne pas manger tout l'écran */
+  @media (max-width: 600px) {
+    .logo-header {
+      top: 15px;
+      left: 15px;
+    }
+    .logo-header img {
+      width: 150px;
+    }
+  }
+</style>
+
+<div class="logo-header">
+  <img src="logo.png" alt="LibreZéro">
+</div>
+
+
+
+
+  
 </head>
 <body class="font-sans text-gray-800">
 
