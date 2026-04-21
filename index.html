@@ -7,70 +7,29 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
-   
- 
+    /* On définit l'image de fond SANS le filtre vert */
+    .hero-bg { 
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                  url('https://picsum.photos/id/1015/2000/1200') center/cover; 
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+    }
 
-
-
-
-
-  
+    /* Ajustement pour ne pas que le contenu passe sous le bandeau fixe */
+    body {
+      padding-top: 80px;
+    }
+  </style>
 </head>
 <body class="font-sans text-gray-800">
-<style>
-  /* Le style du bandeau (header) */
-  .site-header {
-    background-color: white; /* Couleur de fond du bandeau (tu peux changer ici) */
-    width: 100%;
-    padding: 15px 30px; /* Espace interne (haut/bas gauche/droite) */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Petite ombre portée discrète */
-    position: fixed; /* Reste collé en haut quand on scrolle */
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Passe au-dessus de tout */
-    display: flex;
-    align-items: center; /* Centre le logo verticalement dans le bandeau */
-  }
 
-  /* Le style du logo */
-  .logo-bandeau {
-    width: 220px;       /* Taille du logo (ajuste ici) */
-    height: auto;       /* Garde les proportions */
-    display: block;
-    background: transparent !important; /* Force la transparence si le logo est propre */
-  }
+  <header class="fixed top-0 left-0 w-full h-20 bg-white shadow-md z-50 flex items-center px-6 md:px-12">
+    <img src="logo.png" alt="Logo LibreZéro" class="h-12 w-auto">
+  </header>
 
-  /* Pour éviter que le contenu ne passe sous le bandeau fixe */
-  body {
-    padding-top: 80px; /* Ajuste selon la hauteur de ton bandeau */
-  }
-
-  /* Ajustement pour mobile */
-  @media (max-width: 600px) {
-    .site-header {
-      padding: 10px 15px;
-    }
-    .logo-bandeau {
-      width: 150px;
-    }
-    body {
-      padding-top: 60px;
-    }
-  }
-</style>
-
-<header class="site-header">
-  <img src="logo.png" alt="LibreZéro" class="logo-bandeau">
-</header>
-
-  
-  <!-- HERO -->
-  <section class="hero-bg text-white py-24">
+  <section class="hero-bg text-white">
     <div class="max-w-5xl mx-auto px-6 text-center">
-      <div class="mb-10">
-       
-
-      </div>
       
       <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
         Salut, moi c’est Marco !
@@ -80,12 +39,12 @@
       </p>
       
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="#quiz" 
-           class="bg-white text-emerald-700 hover:bg-emerald-50 px-10 py-5 rounded-2xl text-xl font-semibold transition">
-          Lancer mon diagnostic gratuit (45 secondes)
+        <a href="https://calendly.com/ton-calendly" target="_blank" 
+           class="bg-emerald-600 text-white hover:bg-emerald-700 px-10 py-5 rounded-2xl text-xl font-semibold transition shadow-lg">
+          Lancer mon diagnostic gratuit
         </a>
         <a href="https://calendly.com/ton-calendly" target="_blank"
-           class="border-2 border-white hover:bg-white hover:text-emerald-700 px-8 py-5 rounded-2xl text-xl font-medium transition">
+           class="border-2 border-white bg-white/10 backdrop-blur-sm hover:bg-white hover:text-emerald-700 px-8 py-5 rounded-2xl text-xl font-medium transition">
           Prendre RDV gratuit
         </a>
       </div>
@@ -96,7 +55,6 @@
     </div>
   </section>
 
-  <!-- AVANTAGES -->
   <section class="py-16 bg-white">
     <div class="max-w-5xl mx-auto px-6">
       <div class="grid md:grid-cols-3 gap-8">
@@ -119,54 +77,42 @@
     </div>
   </section>
 
-  <!-- TÉMOIGNAGES -->
   <section class="py-20 bg-gray-50">
     <div class="max-w-5xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">Ce qu’ils en disent</h2>
-      
       <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-white p-8 rounded-3xl shadow-sm">
-          <p class="italic text-gray-700 mb-6">"J’avais vraiment peur de me lancer. Grâce à LibreZéro, j’ai commencé mon Assurance Vie sans aucun frais. Marco m’a tout expliqué simplement. Je me sens beaucoup plus serein !"</p>
+          <p class="italic text-gray-700 mb-6">"J’avais vraiment peur de me lancer. Grâce à LibreZéro, j’ai commencé mon Assurance Vie sans aucun frais. Marco m’a tout expliqué simplement."</p>
           <p class="font-medium">— Sarah, 28 ans, Lyon</p>
         </div>
-
         <div class="bg-white p-8 rounded-3xl shadow-sm">
-          <p class="italic text-gray-700 mb-6">"J’ai changé mon assurance emprunteur et j’économise 380 € par an. Le RDV était clair et sans pression. Je recommande à 100%."</p>
+          <p class="italic text-gray-700 mb-6">"J’ai changé mon assurance emprunteur et j’économise 380 € par an. Le RDV était clair et sans pression."</p>
           <p class="font-medium">— Théo, 31 ans, Bordeaux</p>
         </div>
-
         <div class="bg-white p-8 rounded-3xl shadow-sm">
-          <p class="italic text-gray-700 mb-6">"À 34 ans je ne savais pas par où commencer pour ma retraite. Ils m’ont proposé un PER à 0 frais. C’est simple et motivant. Merci !"</p>
+          <p class="italic text-gray-700 mb-6">"À 34 ans je ne savais pas par où commencer pour ma retraite. Ils m’ont proposé un PER à 0 frais. C’est simple et motivant."</p>
           <p class="font-medium">— Julie, 34 ans, Paris</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA FINAL -->
   <section id="contact" class="bg-emerald-700 text-white py-20">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <h2 class="text-4xl font-bold mb-6">Envie de faire ton premier pas ?</h2>
       <p class="text-xl mb-10">Je te propose un RDV gratuit de 30 minutes pour discuter tranquillement de ta situation.</p>
-      
       <a href="https://calendly.com/ton-calendly" target="_blank"
          class="inline-block bg-white text-emerald-700 px-12 py-6 rounded-2xl text-xl font-semibold hover:bg-emerald-50 transition">
         Réserver mon RDV gratuit
       </a>
-      
-      <p class="mt-8 text-sm opacity-75">
-        Ou écris-moi directement à <a href="mailto:contact@libre-zero.fr" class="underline">contact@libre-zero.fr</a>
-      </p>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="bg-gray-900 text-gray-400 py-12">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <p class="mb-2">LibreZéro — Accompagnement simple et transparent</p>
       <p class="text-sm">Conseiller en Investissement Financier • Immatriculé ORIAS</p>
       <p class="text-xs mt-8">© 2026 LibreZéro — Tous droits réservés</p>
-      <p class="text-xs mt-4">Les investissements comportent des risques. Les performances passées ne préjugent pas des performances futures.</p>
     </div>
   </footer>
 
